@@ -1,0 +1,37 @@
+<script type="text/javascript">
+var startTime, endTime;
+
+function start() {
+  startTime = new Date();
+};
+
+function end() {
+  endTime = new Date();
+  var timeDiff = endTime - startTime; //in ms
+  // strip the ms
+  timeDiff /= 1000;
+
+  // get seconds
+  var seconds = Math.round(timeDiff % 60);
+  document.secondsForm.secondsBox.value= seconds + " sec";
+}
+
+function reset () {
+ document.secondsForm.secondsBox.value= 0 + " sec";
+}
+ 
+
+
+
+</script>
+<button onclick="start()">Start</button>
+
+<button onclick="end()">End</button>
+
+ <form name="secondsForm">
+ 
+    Elapsed time:
+      <input type="text" name="secondsBox" size="6">
+  </form>
+  
+<button onclick="reset()">Reset</button>

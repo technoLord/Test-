@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+
+
+<script>
+var startTime, endTime;
+
+function start() {
+  startTime = new Date();
+};
+
+function end() {
+  endTime = new Date();
+  var timeDiff = endTime - startTime; //in ms
+  // strip the ms
+  timeDiff /= 1000;
+
+  // get seconds
+  var seconds = Math.round(timeDiff % 60);
+  
+
+        document.secondsForm.secondsBox.value = seconds;  
+        }
+
+    //Stamp current time as stop time, compute elapsed time difference and display in textbox
+    function EndTiming() {
+        startTime = new  Date();      //stamp current time
+        timeDiff = (endTime- startTime) / 1000; //compute elapsed time
+        document.secondsForm.secondsBox.value = timeDiff ;  //set elapsed time in display box
+        }
+
+</script>
+<button onclick="start()">Start</button>
+
+<button onclick="end()">End</button>
+
+<form name="secondsForm">
+    Elapsed time:
+      <input type="text" name="secondsBox" size="7">
+    seconds
+    </form>
+</body>
+</html>
